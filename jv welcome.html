@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>welcome.M</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero-section">
+        <h1>Welcome to our High-Class Website</h1>
+        <p>Experience the epitome of luxury and elegance.</p>
+        <a href="#" class="btn">Learn More</a>
+    </section>
+
+    <section id="services-section">
+        <h2>Our Services</h2>
+        <div class="service" onclick="showServiceDetails(1)">
+            <img src="service1.jpg" alt="Service 1">
+            <h3>Service 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service" onclick="showServiceDetails(2)">
+            <img src="service2.jpg" alt="Service 2">
+            <h3>Service 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service" onclick="showServiceDetails(3)">
+            <img src="service3.jpg" alt="Service 3">
+            <h3>Service 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </section>
+    
+    <section id="service-details-section" style="display: none;">
+        <h2>Service Details</h2>
+        <div id="service-details-content">
+            <p>Select a service to see its details.</p>
+        </div>
+        <a href="#" class="btn" onclick="hideServiceDetails()">Close</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 High-Class Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showServiceDetails(serviceId) {
+            var serviceDetailsContent = document.getElementById("service-details-content");
+            var serviceDetailsSection = document.getElementById("service-details-section");
+            var serviceName = "";
+            var serviceDescription = "";
+
+            // Update service details based on serviceId
+            if (serviceId === 1) {
+                serviceName = "Service 1";
+                serviceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at lorem felis.";
+            } else if (serviceId === 2) {
+                serviceName = "Service 2";
+                serviceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus euismod.";
+            } else if (serviceId === 3) {
+                serviceName = "Service 3";
+                serviceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue eleifend.";
+            }
+
+            // Set the service details in the content
+            serviceDetailsContent.innerHTML = "<h3>" + serviceName + "</h3><p>" + serviceDescription + "</p>";
+
+            // Show the service details section
+            serviceDetailsSection.style.display = "block";
+        }
+
+        function hideServiceDetails() {
+            var serviceDetailsSection = document.getElementById("service-details-section");
+            serviceDetailsSection.style.display = "none";
+        }
+    </script>
+</body>
+</html>
